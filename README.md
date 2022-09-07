@@ -1,5 +1,5 @@
 # physicalgrade
-Military Physical Grade Calculator website where you can calculate your Korean Military Physical grade in just a few clicks!
+Military Physical Grade Calculator website where you can calculate your Korean Military physical grade in just a few clicks.
 
 ## Details about the website
 I made this website while I was serving my Military duties in the Republic of Korea Army. What the website does is it calculates the military physical grade based on user
