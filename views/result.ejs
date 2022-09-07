@@ -1,0 +1,72 @@
+<% layout ('layouts/boilerplate') %>
+
+<div class = "row justify-content-center">
+<div class = "col-10 col-sm-5">
+<div class="card text-center" id = "bmi-card">
+  <div class="card-body">
+    <h3 class="card-title">예상 신체등급 :</h3>
+    <h2 class="card-text" id ="predicted-grade"> <% for (const tempGrade of possibleGrades){ %>
+    <span class="badge bg-danger" id = "tempGrade"><%=tempGrade%>급</span>
+    <% }%>
+    </h2>
+  </div>
+</div>
+</div>
+</div>
+
+<div class = "row justify-content-center">
+<div class = "col-10 col-sm-8">
+<div class="text-center mb-4" id="disclaimer"> * 명시된 예상 신체등급은 국방부에서 제공한 자료인<span id="참고자료1"> 『신장ㆍ체중에 따른 신체등급의 판정기준』 《2021.02.01 개정》</span>과 <span id="참고자료2">『질병·심신장애의 정도 및 평가기준』 《2021.07.29 개정》</span>을 참고하여 계산되었습니다. 현 웹사이트에서 계산된 등급에 대한 법적 효력은 없으며, 특정한 신체등급에 해당될 경우 위에 언급된 <a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EB%B3%91%EC%97%AD%ED%8C%90%EC%A0%95%EC%8B%A0%EC%B2%B4%EA%B2%80%EC%82%AC%EB%93%B1%EA%B2%80%EC%82%AC%EA%B7%9C%EC%B9%99">공식 자료</a>에서 재확인 후 알맞은 행정절차를 밟으시는 걸 권장합니다. 
+</div>
+</div>
+</div>
+
+
+<div class = "container-fluid" id="bmi-container">
+<div class = "row justify-content-center">
+<div class = "col-8 col-sm-5 col-md-4 col-xl-5" id="bmi-description">
+
+<h5 class = "description-header text-center mb-3">1. 신장 및 체중에 따른 신체등급</h5> 
+<div class = "bmi text-center"> 신장 : <%=height%>cm</div>
+<div class = "bmi text-center"> 체중 : <%=weight%>kg</div>
+<div class = "bmi text-center"> BMI : <%=bmi%></div>
+<div class = "bmi text-center"> 해당 신체등급 : <span id="grade1"><%=bmiGrade%></span><span id="급">급</span></div>
+
+</div>
+</div>
+</div>
+
+
+
+<div class = "container-fluid" id="disease-container">
+<div class = "row justify-content-center">
+<div class = "col-10 col-sm-8 col-md-6 col-xl-7">
+<h5 class = "description-header text-center mb-3">2. 해당될 수 있는 질병 및 심신장애에 의한 신체등급</h5> 
+
+<% if (!categorySelected) { %>
+<div class = "text-center">선택된 질병이 없습니다!</div>
+<% } else { %>
+<% for (let i=0; i<resultDescriptions.length; i++){%>
+
+<div class="card disease-description">
+  <h6 class="card-header"> <% for (const catebadge of resultDescriptions[i].category){%>
+  <span class="badge bg-secondary"><%=catebadge%></span>
+  <% }%>
+  </h6>
+  <div class="card-body">
+    <h5 class="card-title" id="descriptionContent"><%=resultDescriptions[i].content%> </h5>
+  </div>
+</div>
+<% }%>
+<% }%>
+
+</div>
+</div>
+</div>
+
+<form action="/" method="GET"> 
+<div class = "text-center">
+<button class="btn btn-success" id="goback"> 돌아가기 </button>
+</div>
+</form>
+

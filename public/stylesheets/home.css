@@ -1,0 +1,31 @@
+#container-description{
+  height: 350px;
+  overflow-y: scroll;
+  max-width: 80vw;
+  margin-bottom: 3rem;
+}
+
+
+.container-searchbar {
+  max-width: 80vw;
+  margin-bottom: 1rem;
+}
+
+.form-check-label{
+  color : black;
+}
+
+.row-searchbar {
+  margin-left: auto;
+}
+
+#모두{
+color : red;
+text-decoration: underline;
+}
+
+#submitButton {
+margin-bottom : 0.5rem;
+}
+
+

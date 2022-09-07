@@ -1,0 +1,198 @@
+<% layout ('layouts/boilerplate') %>
+
+	<div class="text-center mt-3">
+		<h4>1. 신장 및 체중에 따른 BMI</h4>
+	</div>
+<form action="/" method="POST">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-8 col-sm-5 col-md-4 col-xl-2">
+				<div class="input-group mt-3">
+					<span class="input-group-text">신장</span>
+    <input type="number" aria-label="신장" class="form-control text-center" name="BMI[height]" min = "0" max = "300" step=any  required >
+    <span class="input-group-text">cm </span>
+    <div class="input-group mt-3">
+    <span class="input-group-text ">체중</span>
+    <input type="number" aria-label="체중" class="form-control text-center" name="BMI[weight]" min = "0" max = "300" step=any required>
+    <span class="input-group-text">kg </span>
+    </div>
+    </div>
+  </div>  
+  </div>
+
+	<div class="text-center mt-3">
+		<h4>2. 질병 및 심신장애</h4>
+	</div>
+
+<div class="container-fluid container-searchbar">
+<div class="row row-searchbar">
+<lable for="filter" class="form-label">해당되는 질환을 <span id="모두">모두</span> 선택해주세요</label>
+<div class = "input-group col-11">
+<span class="input-group-text"><i class="fas fa-search"></i>
+</span>
+<input type="text" class="form-control" id="filter">
+</div>
+</div>
+</div>
+
+<div class = "container-sm" id="containerButtons">
+<div class = "row justify-content-center mb-3">
+<div class="btn-group btn-group-sm justify-content-center d-none d-sm-flex" role="group" aria-label="Basic radio toggle button group">
+  <input type="radio" class="btn-check" name="btnradio" id="전체" autocomplete="off" value="전체">
+  <label class="btn btn-outline-primary" for="전체">전체</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="정형외과" autocomplete="off" value="정형외과">
+  <label class="btn btn-outline-primary" for="정형외과">정형외과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="외과" autocomplete="off" value="외애과">
+  <label class="btn btn-outline-primary" for="외과">외과</label>
+  
+  <input type="radio" class="btn-check" name="btnradio" id="내과" autocomplete="off" value="내과">
+  <label class="btn btn-outline-primary" for="내과">내과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="신경과" autocomplete="off" value="신경과">
+  <label class="btn btn-outline-primary" for="신경과">신경과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="신경외과" autocomplete="off" value="신경외과">
+  <label class="btn btn-outline-primary" for="신경외과">신경외과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="흉부외과" autocomplete="off" value="흉부외과">
+  <label class="btn btn-outline-primary" for="흉부외과">흉부외과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="정신건강의학과" autocomplete="off" value="정신건강의학과">
+  <label class="btn btn-outline-primary" for="정신건강의학과">정신건강의학과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="피부과" autocomplete="off" value="피부과">
+  <label class="btn btn-outline-primary" for="피부과">피부과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="성형외과" autocomplete="off" value="성형외과">
+  <label class="btn btn-outline-primary" for="성형외과">성형외과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="이비인후과" autocomplete="off" value="이비인후과">
+  <label class="btn btn-outline-primary" for="이비인후과">이비인후과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="안과" autocomplete="off" value="안과">
+  <label class="btn btn-outline-primary" for="안과">안과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="비뇨기과" autocomplete="off" value="비뇨기과">
+  <label class="btn btn-outline-primary" for="비뇨기과">비뇨기과</label>
+
+  <input type="radio" class="btn-check" name="btnradio" id="치과" autocomplete="off" value="치과">
+  <label class="btn btn-outline-primary" for="치과">치과</label>
+
+</div>
+
+<div class = "d-sm-none"> 
+<select class="form-select" aria-label="Default select example">
+  <option selected>진료과 선택</option>
+  <option value="전체">전체</option>
+  <option value="정형외과">정형외과</option>
+  <option value="외애과">외과</option>
+  <option value="내과">내과</option>
+  <option value="신경과">신경과</option>
+  <option value="신경외과">신경외과</option>
+  <option value="흉부외과">흉부외과</option>
+  <option value="정신건강의학과">정신건강의학과</option>
+  <option value="피부과">피부과</option>
+  <option value="성형외과">성형외과</option>
+  <option value="이비인후과">이비인후과</option>
+  <option value="안과">안과</option>
+  <option value="비뇨기과">비뇨기과</option>
+  <option value="치과">치과</option>
+</select>
+</div>    
+
+</div>
+</div>
+
+<div class="container-fluid px-0" id="container-description">
+
+<% for (let i=0; i<categories.length; i++){%>
+  <div>
+    <input class="form-check-input" id="<%=categories[i]%>" type="checkbox" value="<%=categories[i]%>" name="selectedCategories"></input>
+    <label id="<%=categoryClasses[i]%><%=categories[i]%>-label" class="form-check-label" for="<%=categories[i]%>"><%=categories[i]%></label>
+  </div>
+  <% }%>
+</div>
+
+<div class="d-flex justify-content-center">
+<button class ="btn btn-primary" id="submitButton">예상 신체등급 계산하기
+</button>
+
+
+
+</div>
+</form>
+
+
+
+<script>
+$(function () {
+    $('.btn-check').on('change', function () {
+        var query = this.value;
+        $('.form-check-label').each(function (i, elem) {
+            if (query=="전체") {
+            $(this).show();
+            $(this).prev(':checkbox').show();
+            $(this).next('br').show();
+            }
+            else if ($(this).attr('id').indexOf(query) != -1) {
+                $(this).show();
+                $(this).prev(':checkbox').show();
+                $(this).next('br').show();
+            } else {
+                $(this).hide();
+                $(this).prev(':checkbox').hide();
+                 $(this).next('br').hide();
+            }
+        });
+    });
+});</script>
+
+<script>
+$(function () {
+    $('.form-select').on('change', function () {
+        var query = this.value;
+        $('.form-check-label').each(function (i, elem) {
+            if (query=="전체") {
+            $(this).show();
+            $(this).prev(':checkbox').show();
+            $(this).next('br').show();
+            }
+            else if ($(this).attr('id').indexOf(query) != -1) {
+                $(this).show();
+                $(this).prev(':checkbox').show();
+                $(this).next('br').show();
+            } else {
+                $(this).hide();
+                $(this).prev(':checkbox').hide();
+                 $(this).next('br').hide();
+            }
+        });
+    });
+});</script>
+
+
+
+    <script>
+    $(function () {
+    $('#filter').on('keyup', function () {
+        var query = this.value;
+        $('.form-check-label').each(function (i, elem) {
+            if ($(this).text().indexOf(query) != -1) {
+                $(this).show();
+                $(this).prev(':checkbox').show();
+                $(this).next('br').show();
+            } else {
+                $(this).hide();
+                $(this).prev(':checkbox').hide();
+                 $(this).next('br').hide();
+            }
+        });
+    });
+});
+    </script>
+    
+
+  </body>
+</html>

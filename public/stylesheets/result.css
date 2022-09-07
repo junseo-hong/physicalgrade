@@ -1,0 +1,59 @@
+#tempGrade{
+  color : black;
+}
+
+#disclaimer {
+  color : #4a170a;
+}
+
+#참고자료1 {
+  font-weight : bolder;
+}
+
+#참고자료2 {
+  font-weight : bolder;
+}
+
+#grade1 {
+color : red;
+font-weight : bolder;
+text-decoration : underline;
+}
+
+#급 {
+  font-weight : bolder;
+}
+
+#bmi-container, #disease-container {
+  margin-bottom : 2em;
+}
+
+#bmi-description{
+  margin-bottom : 1em;
+}
+
+.disease-description{
+  background-color : #c2cfb4;
+  margin-bottom : 2em;
+  border : solid;
+}
+
+.card-header {
+  background-color : #b7bdb1;
+  border-bottom : solid;
+}
+
+#goback {
+  width : 6em;
+  display : block;
+  margin : auto;
+  margin-bottom : 3em;
+}
+
+#descriptionContent {
+  font-size: 1.2em;
+}
+
+#bmi-card {
+  margin-bottom : 3em;
+}
